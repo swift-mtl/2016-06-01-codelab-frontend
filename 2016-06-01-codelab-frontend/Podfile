@@ -7,5 +7,6 @@ target '2016-06-01-codelab-frontend' do
   pod 'Alamofire'
   pod 'RealmSwift'
   pod 'ObjectMapper'
-
+  pod 'Locksmith'
+  pod 'AlamofireObjectMapper'
 end
