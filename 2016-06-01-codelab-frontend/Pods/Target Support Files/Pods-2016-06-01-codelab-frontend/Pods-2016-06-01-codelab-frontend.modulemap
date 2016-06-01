@@ -1,0 +1,6 @@
+framework module Pods_2016_06_01_codelab_frontend {
+  umbrella header "Pods-2016-06-01-codelab-frontend-umbrella.h"
+
+  export *
+  module * { export * }
+}
