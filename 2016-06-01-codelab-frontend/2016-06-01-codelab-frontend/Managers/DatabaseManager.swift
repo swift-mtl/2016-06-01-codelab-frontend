@@ -3,22 +3,25 @@
 //  2016-06-01-codelab-frontend
 //
 //  Created by Fatih Nayebi on 2016-06-01.
-//  Copyright © 2016 Fatih Nayebi. All rights reserved.
+//  Copyright © 2016 Swift-Mtl. All rights reserved.
 //
 
 import Foundation
 import RealmSwift
 
+// MARK: - Save Data
 
-/// #### Save a data model to Realm DB
-/// This method is used when we have a single object model that we want to persist it in Realm DB
-/// - Parameter response: Model Object - parsed from JSON and is a subclass of Object
+/// #### Save array of data to Realm DB
+/// This method is used when we have array of object models that we want to persist it in Realm DB
+/// - Parameter response: Array of Model Objects - parsed from JSON and is a subclass of Object
 /// - Returns: Void
-public func saveData<T>(response: T, isUpdate: Bool = true) {
-    
+public func saveData<T>(response: [T], isUpdate: Bool = true) {
     let realm = try! Realm()
+    var realmObject: [Object] = []
+    for obj in response {
+        realmObject.append(obj as! Object)
+    }
     try! realm.write {
-        let realmObject = response as! Object
         realm.add(realmObject, update: isUpdate)
     }
 }
